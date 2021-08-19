@@ -42,7 +42,7 @@ def main(params):
     # checkpoint_file is in the format of ./checkpoint/epoch_{number}.pth
     epoch = checkpoint_file.split('_')[-1].split('.')[0]
     checkpoint = paddle.load(checkpoint_file)
-    captioner.set_state_dict(checkpoint)
+    captioner.set_state_dict(checkpoint['model'])
 
     # process image captions before set up dataloader
     print('\n====> process image captions begin')
